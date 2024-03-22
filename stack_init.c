@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 17:19:03 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/03/20 18:23:32 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:20:25 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	stack_init_a(t_stack **a, char **av)
 	long	nb;
 	int		y;
 
-	x = 0;
-	while (av[x] != '\0')
+	y = 0;
+	while (av[y] != NULL)
 	{
 		nb = ft_atol(av[y]);
 		if (nb > INT_MAX || nb < INT_MIN)
@@ -48,13 +48,13 @@ void	append_node(t_stack **stack, int nbr)
 	if (*stack == NULL)
 	{
 		*stack = node;
-		node->prev = NULL;
+		node->previous = NULL;
 	}
 	else
 	{
 		last_node = find_last(*stack);
 		last_node->next = node;
-		node->prev = last_node;
+		node->previous = last_node;
 	}
 }
 
@@ -74,7 +74,20 @@ void	prep_for_push(t_stack **stack, t_stack *top_node, char stack_name)
 			if (top_node->above_median)
 				rb(stack, false);
 			else
-				rrb(satck, false);
+				rrb(stack, false);
 		}
 	}
+}
+
+t_stack	*get_cheapest(t_stack *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack)
+	{
+		if (stack->cheapest)
+			return (stack);
+		stack = stack->next;
+	}
+	return (NULL);
 }

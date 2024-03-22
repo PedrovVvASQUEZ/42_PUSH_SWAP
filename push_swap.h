@@ -6,19 +6,19 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 15:09:39 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/03/22 16:24:19 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:20:07 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# define INT_MIN -2147483648
-# define INT_MAX 2147483647
-# define LONG_MIN -9223372036854775808
-# define LONG_MAX 9223372036854775807
+// # define INT_MIN -2147483648
+// # define INT_MAX 2147483647
+// # define LONG_MIN -9223372036854775808
+// # define LONG_MAX 9223372036854775807
 
-//# include <limits.h>
+# include <limits.h>
 # include "libft/libft.h"
 # include <stdbool.h>
 # include <stddef.h>
@@ -43,6 +43,8 @@ void	stack_init_a(t_stack **a, char **av);
 void	append_node(t_stack **stack, int nbr);
 bool	stack_sorted(t_stack *stack);
 t_stack	*find_min(t_stack *stack);
+t_stack	*find_max(t_stack *stack);
+t_stack	*find_last(t_stack *stack);
 void	sort_three(t_stack **a);
 void	init_nodes(t_stack *a, t_stack *b);
 
@@ -66,5 +68,17 @@ void	ss(t_stack **a, t_stack **b, bool print);
 void	sort_stacks(t_stack **a, t_stack **b);
 void	min_on_top(t_stack **a);
 void	sort_three(t_stack **a);
+
+//utils
+int		stack_len(t_stack *stack);
+void	free_stack(t_stack **stack);
+void	current_index(t_stack *stack);
+
+t_stack	*get_cheapest(t_stack *stack);
+void	prep_for_push(t_stack **stack, t_stack *top_node, char stack_name);
+
+//errors
+void	free_errors(t_stack **a);
+int	check_doubles(t_stack *a, int nb);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:58:45 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/03/22 15:21:06 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:07:37 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push(t_stack **dest, t_stack **src)
+static void	push(t_stack **dst, t_stack **src)
 {
 	t_stack	*node2push;
 
@@ -26,7 +26,7 @@ static void	push(t_stack **dest, t_stack **src)
 	if (!*dst)
 	{
 		*dst = node2push;
-		node2push->next->previous;
+		node2push->next = NULL;
 	}
 	else
 	{
@@ -45,7 +45,7 @@ void	pa(t_stack **a, t_stack **b, bool print)
 
 void	pb(t_stack **b, t_stack **a, bool print)
 {
-	push(b, b);
+	push(b, a);
 	if (!print)
 		write(1, "pb\n", 3);
 }

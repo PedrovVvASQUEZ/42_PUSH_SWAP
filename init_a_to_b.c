@@ -6,13 +6,13 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:05:35 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/03/20 18:24:39 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:05:21 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	current_index(t_stack *stack)
+void	current_index(t_stack *stack)
 {
 	int	x;
 	int	median;
@@ -61,13 +61,13 @@ static void	set_target_a(t_stack *a, t_stack *b)
 	}
 }
 
-static void	cost_analyis(t_stack *a, t_stack *b)
+static void	cost_analysis(t_stack *a, t_stack *b)
 {
 	int	len_a;
 	int	len_b;
 
 	len_a = stack_len(a);
-	len_b = stack(b);
+	len_b = stack_len(b);
 	while (a != NULL)
 	{
 		a->push_cost = a->index;
@@ -91,7 +91,7 @@ static void	set_cheapest(t_stack *stack)
 	cheapest_data = LONG_MAX;
 	while (stack != NULL)
 	{
-		if (stack->push_cost < cheapest_value)
+		if (stack->push_cost < cheapest_data)
 		{
 			cheapest_data = stack->push_cost;
 			cheapest_node = stack;
@@ -105,7 +105,7 @@ void	init_nodes(t_stack *a, t_stack *b)
 {
 	current_index(a);
 	current_index(b);
-	set_target(a, b);
-	cost_analysis(a, b)
+	set_target_a(a, b);
+	cost_analysis(a, b);
 	set_cheapest(a);
 }

@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:25:05 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/03/20 18:31:18 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:04:39 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	set_target_b(t_stack *a, t_stack *b)
 		if (best_match_index == LONG_MAX)
 			b->target_node = find_min(a);
 		else
-			b->taret_node = target_node;
+			b->target_node = target_node;
 		b = b->next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 14:55:19 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/03/22 15:03:48 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:09:40 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	rev_rotate(t_stack **stack)
 	if (!*stack || !(*stack)->next)
 		return ;
 	last = find_last(*stack);
-	last->prev->next = NULL;
+	last->previous->next = NULL;
 	last->next = *stack;
 	last->previous = NULL;
 	*stack = last;

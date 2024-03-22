@@ -6,7 +6,7 @@
 #    By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/01 17:17:48 by pgrellie          #+#    #+#              #
-#    Updated: 2024/03/13 15:50:22 by pgrellie         ###   ########.fr        #
+#    Updated: 2024/03/22 17:57:02 by pgrellie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,18 @@ MAKE_LIB = ar -rcs
 
 SRCS = parsing.c\
 		push_swap.c\
-
+		init_a_to_b.c\
+		init_b_to_a.c\
+		push_command.c\
+		rev_rotate.c\
+		errors.c\
+		rotate.c\
+		sort_stacks.c\
+		sort_three.c\
+		stack_init.c\
+		stack_utils.c\
+		swap.c\
+		
 OBJS = $(SRCS:.c=.o)
 
 ######   LIBFT   ######

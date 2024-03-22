@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 14:42:21 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/03/22 14:53:41 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:10:41 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	rotate(t_stack **stack)
 	last_node->next = *stack;
 	*stack = (*stack)->next;
 	(*stack)->previous = NULL;
-	last_node->next->prev = last_node;
+	last_node->next->previous = last_node;
 	last_node->next->next = NULL;
 }
 

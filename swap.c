@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 15:42:20 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/03/22 15:51:08 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:21:15 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	swap(t_stack **head)
 	(*head)->previous->previous = *head;
 	(*head)->previous->next = (*head)->next;
 	if ((*head)->next)
-		(*head)->net->previous = (*head)->previous;
+		(*head)->next->previous = (*head)->previous;
 	(*head)->next = (*head)->previous;
 	(*head)->previous = NULL;
 }
@@ -44,5 +44,5 @@ void	ss(t_stack **a, t_stack **b, bool print)
 	swap(a);
 	swap(b);
 	if (!print)
-		write(1, "ss\n"3);
+		write(1, "ss\n", 3);
 }

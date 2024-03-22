@@ -6,11 +6,35 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:44:07 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/03/22 14:40:27 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:20:44 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	stack_len(t_stack *stack)
+{
+	int	x;
+
+	if (!stack)
+		return (0);
+	x = 0;
+	while (stack)
+	{
+		stack = stack->next;
+		x++;
+	}
+	return (x);
+}
+
+t_stack	*find_last(t_stack *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack->next)
+		stack = stack->next;
+	return (stack);
+}
 
 bool	stack_sorted(t_stack *stack)
 {
@@ -43,4 +67,24 @@ t_stack	*find_min(t_stack *stack)
 		stack = stack->next;
 	}
 	return (min_node);
+}
+
+t_stack	*find_max(t_stack *stack)
+{
+	long	max;
+	t_stack	*max_node;
+
+	if (!stack)
+		return (NULL);
+	max = LONG_MIN;
+	while (stack)
+	{
+		if (stack->data > max)
+		{
+			max = stack->data;
+			max_node = stack;
+		}
+		stack = stack->next;
+	}
+	return (max_node);
 }

@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:34:56 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/03/22 16:15:25 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:17:11 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	sort_stacks(t_stack **a, t_stack **b)
 	int	len_a;
 
 	len_a = stack_len(*a);
-	if (len_a-- > 3 !stack_sorted(*a))
+	if (len_a-- > 3 && !stack_sorted(*a))
 		pb(b, a, false);
 	if (len_a-- > 3 && !stack_sorted(*a))
 		pb(b, a, false);
