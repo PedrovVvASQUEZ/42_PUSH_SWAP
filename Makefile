@@ -6,7 +6,7 @@
 #    By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/01 17:17:48 by pgrellie          #+#    #+#              #
-#    Updated: 2024/03/22 17:57:02 by pgrellie         ###   ########.fr        #
+#    Updated: 2024/04/09 21:20:37 by pgrellie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,8 @@ MAKE_LIB = ar -rcs
 
 SRCS = parsing.c\
 		push_swap.c\
-		init_a_to_b.c\
 		init_b_to_a.c\
+		push_b_to_a.c\
 		push_command.c\
 		rev_rotate.c\
 		errors.c\

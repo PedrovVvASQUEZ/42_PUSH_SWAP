@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 17:18:16 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/03/22 18:10:15 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/03/27 14:53:28 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ void	free_stack(t_stack **stack)
 void	free_errors(t_stack **a)
 {
 	free_stack(a);
-	write(1, "Errors\n", 7);
+	write(1, "Error\n", 6);
 	exit(1);
 }

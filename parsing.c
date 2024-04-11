@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 15:36:27 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/03/20 16:30:33 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/04/11 15:22:06 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,10 @@ static int	check_fs(char *s)
 	while (s[x])
 	{
 		if (ft_isalpha(s[x]))
-		{
-			write(1, "Error\n", 6);
 			return (0);
-		}
 		else if ((ft_issigns(s[x]) && ft_issigns(s[x + 1]))
 			|| (ft_issigns(s[x]) && ft_isspace(s[x + 1])))
-		{
-			write(1, "Error\n", 6);
 			return (0);
-		}
 		x++;
 	}
 	return (1);

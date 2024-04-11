@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:54:37 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/03/22 16:22:57 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/04/09 21:58:28 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,20 @@ void	sort_three(t_stack **a)
 
 void	min_on_top(t_stack **a)
 {
-	while ((*a)->data != find_min(*a)->data)
+	t_stack	*min;
+
+	min = find_min(*a);
+	while (min->index !=0)
 	{
-		if (find_min(*a)->above_median)
+		if (min->above_median)
+		{
 			ra(a, false);
+			current_index(*a);
+		}
 		else
+		{
 			rra(a, false);
+			current_index(*a);
+		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 15:09:39 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/03/22 18:20:07 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/04/11 15:38:01 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,20 @@ t_stack	*find_max(t_stack *stack);
 t_stack	*find_last(t_stack *stack);
 void	sort_three(t_stack **a);
 void	init_nodes(t_stack *a, t_stack *b);
+void	cost_analysis(t_stack *a, t_stack *b);
+void	set_cheapest(t_stack *b);
+
+//utils
+int		stack_len(t_stack *stack);
+void	free_stack(t_stack **stack);
+void	current_index(t_stack *stack);
+
+t_stack	*get_cheapest(t_stack *stack);
+void	prep_for_push(t_stack **stack, t_stack *top_node, char stack_name);
+
+//errors
+void	free_errors(t_stack **a);
+int		check_doubles(t_stack *a, int nb);
 
 // Commandes 
 
@@ -69,16 +83,17 @@ void	sort_stacks(t_stack **a, t_stack **b);
 void	min_on_top(t_stack **a);
 void	sort_three(t_stack **a);
 
-//utils
-int		stack_len(t_stack *stack);
-void	free_stack(t_stack **stack);
-void	current_index(t_stack *stack);
+void	rotate_both(t_stack **a, t_stack **b,
+			t_stack *cheapest);
+void	rev_rotate_both(t_stack **a, t_stack **b,
+			t_stack *cheapest);
 
-t_stack	*get_cheapest(t_stack *stack);
-void	prep_for_push(t_stack **stack, t_stack *top_node, char stack_name);
-
-//errors
-void	free_errors(t_stack **a);
-int	check_doubles(t_stack *a, int nb);
+//asuprmer
+void	visual_stack(t_stack *a, t_stack *b);
+void	init_node_b(t_stack *a, t_stack *b);
+void	move_a_above_and_b_below_median(t_stack **a, t_stack **b,
+			t_stack *cheapest);
+void	move_a_below_and_b_above_median(t_stack **a, t_stack **b,
+			t_stack *cheapest);
 
 #endif

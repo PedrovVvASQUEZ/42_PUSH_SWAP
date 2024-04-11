@@ -6,11 +6,94 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:25:05 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/03/22 18:04:39 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/04/11 16:50:31 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	current_index(t_stack *stack)
+{
+	int	x;
+	int	median;
+
+	x = 0;
+	if (!stack)
+		return ;
+	median = stack_len(stack) / 2;
+	while (stack)
+	{
+		stack->index = x;
+		if (x <= median)
+			stack->above_median = true;
+		else
+			stack->above_median = false;
+		stack = stack->next;
+		x++;
+	}
+}
+
+void	cost_analysis(t_stack *a, t_stack *b)
+{
+	int	len_a;
+	int	len_b;
+
+	len_a = stack_len(a);
+	len_b = stack_len(b);
+	while (b)
+	{
+		b->push_cost = b->index;
+		if (!(b->above_median))
+			b->push_cost = len_b - (b->index);
+		if (b->target_node->above_median)
+			b->push_cost += b->target_node->index;
+		else
+			b->push_cost += len_a - (b->target_node->index);
+		b = b->next;
+	}
+}
+
+// void	set_cheapest(t_stack *stack)
+// {
+// 	long	cheapest_data;
+// 	t_stack	*cheapest_node;
+
+// 	if (!stack)
+// 		return ;
+// 	cheapest_data = LONG_MAX;
+// 	while (stack != NULL)
+// 	{
+// 		if (stack->push_cost < cheapest_data)
+// 		{
+// 			cheapest_data = stack->push_cost;
+// 			cheapest_node = stack;
+// 		}
+// 		stack = stack->next;
+// 	}
+// 	cheapest_node->cheapest = true;
+// }
+void	set_cheapest(t_stack *b)
+{
+	int				cheap;
+	t_stack	*current_cheap;
+
+	cheap = b->push_cost;
+	current_cheap = b;
+	current_cheap->cheapest = true;
+	b = b->next;
+	while (b)
+	{
+		b->cheapest = false;
+		if (b->push_cost < cheap)
+		{
+			current_cheap->cheapest = false;
+			current_cheap = b;
+			cheap = b->push_cost;
+			current_cheap->cheapest = true;
+		}
+		b = b->next;
+	}
+}
 
 static void	set_target_b(t_stack *a, t_stack *b)
 {
@@ -40,9 +123,11 @@ static void	set_target_b(t_stack *a, t_stack *b)
 	}
 }
 
-void	init_node_b(t_stack *a, t_stack *b)
+void	init_nodes(t_stack *a, t_stack *b)
 {
 	current_index(a);
 	current_index(b);
 	set_target_b(a, b);
+	cost_analysis(a, b);
+	set_cheapest(b);
 }
