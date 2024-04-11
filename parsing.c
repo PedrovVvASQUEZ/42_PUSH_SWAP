@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 15:36:27 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/04/11 18:19:21 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/04/11 18:39:40 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static char	*concat(int ac, char **av)
 	if (ac > 2)
 	{
 		y = 1;
-		dest = malloc(sizeof(char*) * y + 1);
+		dest = malloc(sizeof(char *) * y + 1);
 		if (!dest)
 			return (NULL);
 		dest = ft_strjoin(av[y], av[y + 1]);
