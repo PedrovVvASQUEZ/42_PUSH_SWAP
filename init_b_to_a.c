@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:25:05 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/04/11 16:50:31 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/04/11 18:17:33 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,28 +53,9 @@ void	cost_analysis(t_stack *a, t_stack *b)
 	}
 }
 
-// void	set_cheapest(t_stack *stack)
-// {
-// 	long	cheapest_data;
-// 	t_stack	*cheapest_node;
-
-// 	if (!stack)
-// 		return ;
-// 	cheapest_data = LONG_MAX;
-// 	while (stack != NULL)
-// 	{
-// 		if (stack->push_cost < cheapest_data)
-// 		{
-// 			cheapest_data = stack->push_cost;
-// 			cheapest_node = stack;
-// 		}
-// 		stack = stack->next;
-// 	}
-// 	cheapest_node->cheapest = true;
-// }
 void	set_cheapest(t_stack *b)
 {
-	int				cheap;
+	int		cheap;
 	t_stack	*current_cheap;
 
 	cheap = b->push_cost;

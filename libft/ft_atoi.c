@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:26:04 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/03/20 16:16:50 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/04/11 18:23:55 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ int	ft_atoi(const char *str)
 	x = 0;
 	sign = 1;
 	res = 0;
-
 	if (str[x] == '-' || str[x] == '+')
 	{
 		if (str[x] == '-')

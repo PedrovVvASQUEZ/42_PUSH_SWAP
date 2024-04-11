@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 15:09:39 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/04/11 15:38:01 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/04/11 18:20:43 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@
 
 typedef struct s_stack
 {
-	int		data;
-	int		index;
-	int		final_index;
-	int		push_cost;
-	bool	above_median;
-	bool	cheapest;
-	struct	s_stack	*target_node;
-	struct	s_stack	*next;
-	struct	s_stack	*previous;
+	int				data;
+	int				index;
+	int				final_index;
+	int				push_cost;
+	bool			above_median;
+	bool			cheapest;
+	struct s_stack	*target_node;
+	struct s_stack	*next;
+	struct s_stack	*previous;
 }			t_stack;
 
 /***************** FUNCTIONS ****************/

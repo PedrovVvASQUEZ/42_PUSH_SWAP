@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:54:37 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/04/09 21:58:28 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/04/11 18:26:30 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	min_on_top(t_stack **a)
 	t_stack	*min;
 
 	min = find_min(*a);
-	while (min->index !=0)
+	while (min->index != 0)
 	{
 		if (min->above_median)
 		{

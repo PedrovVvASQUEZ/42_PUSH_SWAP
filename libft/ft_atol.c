@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 17:27:30 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/03/18 17:31:34 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/04/11 18:24:06 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ long	ft_atol(const char *str)
 	x = 0;
 	sign = 1;
 	res = 0;
-
 	if (str[x] == '-' || str[x] == '+')
 	{
 		if (str[x] == '-')
