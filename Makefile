@@ -6,14 +6,14 @@
 #    By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/01 17:17:48 by pgrellie          #+#    #+#              #
-#    Updated: 2024/04/09 21:20:37 by pgrellie         ###   ########.fr        #
+#    Updated: 2024/04/12 18:16:27 by pgrellie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ###### ARGUMENTS ######
 
 NAME =  push_swap
-CFLAGS = -Wall -Werror -Wextra -g3
+CFLAGS = -g -Wall -Werror -Wextra -g3
 ARCHIVE = push_swap.a
 COMP = cc
 RM = rm -f

@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:33:44 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/03/13 17:45:04 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/04/15 11:29:37 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,26 @@ static int	word_len(char const *str, char c)
 	return (x);
 }
 
-static void	*ft_free(char **strs, int count)
+// static void	*ft_free(char **strs, int count)
+// {
+// 	int	x;
+
+// 	x = 0;
+// 	while (x < count)
+// 	{
+// 		free(strs[x]);
+// 		x++;
+// 	}
+// 	free(strs);
+// 	return (NULL);
+// }
+
+void	*ft_free(char **strs)
 {
 	int	x;
 
 	x = 0;
-	while (x < count)
+	while (strs[x])
 	{
 		free(strs[x]);
 		x++;
@@ -56,6 +70,35 @@ static void	*ft_free(char **strs, int count)
 	free(strs);
 	return (NULL);
 }
+
+// char	**ft_split(char const *s, char c)
+// {
+// 	int		y;
+// 	int		wlen;
+// 	char	**tab;
+
+// 	tab = (char **)malloc(sizeof(char *) * (word_count(s, c) + 1));
+// 	if (!tab || !s)
+// 		return (ft_free(tab, 0));
+// 	y = 0;
+// 	while (*s)
+// 	{
+// 		wlen = 0;
+// 		while (*s && *s == c)
+// 			s++;
+// 		wlen = word_len(s, c);
+// 		if (wlen)
+// 		{
+// 			tab[y] = ft_substr(s, 0, wlen);
+// 			if (!tab[y])
+// 				return (ft_free(tab, y));
+// 			y++;
+// 		}
+// 		s += wlen;
+// 	}
+// 	tab[y] = 0;
+// 	return (tab);
+// }
 
 char	**ft_split(char const *s, char c)
 {
@@ -65,7 +108,7 @@ char	**ft_split(char const *s, char c)
 
 	tab = (char **)malloc(sizeof(char *) * (word_count(s, c) + 1));
 	if (!tab || !s)
-		return (ft_free(tab, 0));
+		return (ft_free(tab));
 	y = 0;
 	while (*s)
 	{
@@ -77,7 +120,7 @@ char	**ft_split(char const *s, char c)
 		{
 			tab[y] = ft_substr(s, 0, wlen);
 			if (!tab[y])
-				return (ft_free(tab, y));
+				return (ft_free(tab));
 			y++;
 		}
 		s += wlen;

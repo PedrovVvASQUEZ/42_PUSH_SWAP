@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 15:09:39 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/04/11 18:20:43 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/04/15 11:54:00 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	sort_three(t_stack **a);
 void	init_nodes(t_stack *a, t_stack *b);
 void	cost_analysis(t_stack *a, t_stack *b);
 void	set_cheapest(t_stack *b);
+bool	only_space(char *str);
 
 //utils
 int		stack_len(t_stack *stack);
@@ -59,7 +60,7 @@ t_stack	*get_cheapest(t_stack *stack);
 void	prep_for_push(t_stack **stack, t_stack *top_node, char stack_name);
 
 //errors
-void	free_errors(t_stack **a);
+void	free_errors(t_stack **a, char **av);
 int		check_doubles(t_stack *a, int nb);
 
 // Commandes 

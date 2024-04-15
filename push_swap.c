@@ -6,13 +6,13 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:19:22 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/04/11 18:44:08 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/04/15 11:30:29 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	visual_stack(t_stack *a, t_stack *b)
+/*void	visual_stack(t_stack *a, t_stack *b)
 {
 	printf("[a]	[b]\n");
 	while (a || b)
@@ -31,13 +31,12 @@ void	visual_stack(t_stack *a, t_stack *b)
 		b = b->next;
 	}
 	printf("\n");
-}
+}*/
 
 static int	check_av(char **av)
 {
 	if (av == NULL)
 	{
-		write(1, "Error\n", 6);
 		return (1);
 	}
 	else
@@ -52,12 +51,9 @@ int	main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	if (ac == 1 || (ac == 2 && !av[1][0]))
-	{
-		write(1, "Error\n", 6);
 		return (1);
-	}
 	av = final_flash(ac, av);
-	if (check_av(av) == 1)
+	if (check_av(av))
 		return (1);
 	stack_init_a(&a, av);
 	if (!stack_sorted(a))
@@ -69,6 +65,7 @@ int	main(int ac, char **av)
 		else
 			sort_stacks(&a, &b);
 	}
+	ft_free(av);
 	free_stack(&a);
 	return (0);
 }
