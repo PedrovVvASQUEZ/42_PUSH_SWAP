@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   parsing_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 15:36:27 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/04/17 14:11:13 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/04/18 16:40:12 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 static int	check_fs(char *s)
 {
@@ -40,7 +40,7 @@ static char	*concat(int ac, char **av)
 		y = 1;
 		dest = malloc(sizeof(char *) * y + 1);
 		if (!dest)
-			return (free(dest), NULL);
+			return (NULL);
 		tmp = dest;
 		dest = ft_strjoin(av[y], av[y + 1]);
 		free(tmp);
@@ -56,7 +56,7 @@ static char	*concat(int ac, char **av)
 	return (av[1]);
 }
 
-bool	only_space(char *str)
+bool	only_space_bo(char *str)
 {
 	int	i;
 
@@ -70,7 +70,7 @@ bool	only_space(char *str)
 	return (true);
 }
 
-char	**final_flash(int ac, char **av)
+char	**final_flash_bo(int ac, char **av)
 {
 	char	*fs;
 	char	**tab;
@@ -82,7 +82,7 @@ char	**final_flash(int ac, char **av)
 		write(1, "Error\n", 6);
 		return (NULL);
 	}
-	else if (only_space(fs))
+	else if (only_space_bo(fs))
 	{
 		write(1, "Error\n", 6);
 		return (NULL);

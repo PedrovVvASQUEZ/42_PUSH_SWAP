@@ -6,32 +6,11 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:19:22 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/04/15 11:30:29 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/04/15 15:24:02 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*void	visual_stack(t_stack *a, t_stack *b)
-{
-	printf("[a]	[b]\n");
-	while (a || b)
-	{
-		if (a == NULL)
-			printf("-\t");
-		else
-			printf("{%d}\t", a->data);
-		if (b == NULL)
-			printf("-\n");
-		else
-			printf("{%d}\n", b->data);
-		if (a)
-			a = a->next;
-		if (b)
-		b = b->next;
-	}
-	printf("\n");
-}*/
 
 static int	check_av(char **av)
 {

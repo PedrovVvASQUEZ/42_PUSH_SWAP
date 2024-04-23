@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 15:09:39 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/04/15 11:54:00 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/04/17 15:25:26 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 // # define LONG_MAX 9223372036854775807
 
 # include <limits.h>
-# include "libft/libft.h"
+# include "pedro_lib/pedro_lib.h"
 # include <stdbool.h>
 # include <stddef.h>
 
@@ -57,7 +57,6 @@ void	free_stack(t_stack **stack);
 void	current_index(t_stack *stack);
 
 t_stack	*get_cheapest(t_stack *stack);
-void	prep_for_push(t_stack **stack, t_stack *top_node, char stack_name);
 
 //errors
 void	free_errors(t_stack **a, char **av);
