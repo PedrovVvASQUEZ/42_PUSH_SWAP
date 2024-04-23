@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 15:09:39 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/04/23 16:02:23 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/04/23 18:55:07 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_vars
 	t_stack	*b;
 	char	*line;
 }			t_vars;
+
 /***************** FUNCTIONS ****************/
 
 char	**final_flash_bo(int ac, char **av);

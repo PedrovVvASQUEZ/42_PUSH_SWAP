@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pgrellie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 15:30:11 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/04/23 15:15:52 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/01/10 17:40:49 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	ft_printf(const char *format, ...)
 	va_list	ap;
 	int		count;
 
-	if (!format)
+	if(!format)
 		return (-1);
 	va_start(ap, format);
 	count = 0;

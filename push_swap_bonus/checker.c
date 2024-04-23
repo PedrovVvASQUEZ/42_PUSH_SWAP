@@ -6,32 +6,32 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:19:22 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/04/23 16:16:32 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/04/23 18:56:56 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-// void	visual_stack(t_stack *a, t_stack *b)
-// {
-// 	printf("[a]	[b]\n");
-// 	while (a || b)
-// 	{
-// 		if (a == NULL)
-// 			printf("-\t");
-// 		else
-// 			printf("{%d}\t", a->data);
-// 		if (b == NULL)
-// 			printf("-\n");
-// 		else
-// 			printf("{%d}\n", b->data);
-// 		if (a)
-// 			a = a->next;
-// 		if (b)
-// 		b = b->next;
-// 	}
-// 	printf("\n");
-// }
+void	visual_stack(t_stack *a, t_stack *b)
+{
+	printf("[a]	[b]\n");
+	while (a || b)
+	{
+		if (a == NULL)
+			printf("-\t");
+		else
+			printf("{%d}\t", a->data);
+		if (b == NULL)
+			printf("-\n");
+		else
+			printf("{%d}\n", b->data);
+		if (a)
+			a = a->next;
+		if (b)
+		b = b->next;
+	}
+	printf("\n");
+}
 
 int	ft_strcmp(const char *s1, const char *s2)
 {
@@ -42,6 +42,7 @@ int	ft_strcmp(const char *s1, const char *s2)
 		x++;
 	return (s1[x] - s2[x]);
 }
+
 
 int	check_move(char *av, t_stack **a, t_stack **b)
 {

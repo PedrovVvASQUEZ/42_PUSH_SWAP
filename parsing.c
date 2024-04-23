@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 15:36:27 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/04/17 14:11:13 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/04/23 18:48:50 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,12 @@ char	**final_flash(int ac, char **av)
 	if (check_fs(fs) == 0)
 	{
 		write(1, "Error\n", 6);
-		return (NULL);
+		return (free(fs), NULL);
 	}
 	else if (only_space(fs))
 	{
 		write(1, "Error\n", 6);
-		return (NULL);
+		return (free(fs), NULL);
 	}
 	else if (ac == 2 && check_fs(av[1]) == 1)
 		tab = ft_split(av[1], ' ');
