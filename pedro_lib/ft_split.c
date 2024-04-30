@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:33:44 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/04/15 14:27:08 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/04/26 18:49:50 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,20 @@ void	*ft_free(char **strs)
 	return (NULL);
 }
 
+static void	*ft_free_split(char **strs, int count)
+{
+	int	x;
+
+	x = 0;
+	while (x < count)
+	{
+		free(strs[x]);
+		x++;
+	}
+	free(strs);
+	return (NULL);
+}
+
 // char	**ft_split(char const *s, char c)
 // {
 // 	int		y;
@@ -108,7 +122,7 @@ char	**ft_split(char const *s, char c)
 
 	tab = (char **)malloc(sizeof(char *) * (word_count(s, c) + 1));
 	if (!tab || !s)
-		return (ft_free(tab));
+		return (ft_free_split(tab, 0));
 	y = 0;
 	while (*s)
 	{
@@ -120,7 +134,7 @@ char	**ft_split(char const *s, char c)
 		{
 			tab[y] = ft_substr(s, 0, wlen);
 			if (!tab[y])
-				return (ft_free(tab));
+				return (ft_free_split(tab, y));
 			y++;
 		}
 		s += wlen;

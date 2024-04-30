@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 15:36:27 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/04/23 18:48:50 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/04/30 14:55:16 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ static int	check_fs(char *s)
 			return (0);
 		else if ((ft_issigns(s[x]) && ft_issigns(s[x + 1]))
 			|| (ft_issigns(s[x]) && ft_isspace(s[x + 1])))
+			return (0);
+		else if (!ft_isdigit(s[x]) && s[x + 1] == '\0')
 			return (0);
 		x++;
 	}
@@ -70,6 +72,13 @@ bool	only_space(char *str)
 	return (true);
 }
 
+static void	free_fs(char *fs, int ac)
+{
+	write(STDERR_FILENO, "Error\n", 6);
+	if (ac > 2)
+		free(fs);
+}
+
 char	**final_flash(int ac, char **av)
 {
 	char	*fs;
@@ -78,21 +87,21 @@ char	**final_flash(int ac, char **av)
 	tab = NULL;
 	fs = concat(ac, av);
 	if (check_fs(fs) == 0)
-	{
-		write(1, "Error\n", 6);
-		return (free(fs), NULL);
-	}
+		return (free_fs(fs, ac), NULL);
 	else if (only_space(fs))
-	{
-		write(1, "Error\n", 6);
-		return (free(fs), NULL);
-	}
+		return (free_fs(fs, ac), NULL);
 	else if (ac == 2 && check_fs(av[1]) == 1)
+	{
 		tab = ft_split(av[1], ' ');
+		if (!tab)
+			return (NULL);
+	}
 	else if (ac > 2 && check_fs(fs) == 1)
 	{
 		tab = ft_split(fs, ' ');
 		free(fs);
+		if (!tab)
+			return (NULL);
 	}
 	else
 		return (NULL);

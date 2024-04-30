@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:19:22 by pgrellie          #+#    #+#             */
-/*   Updated: 2024/04/23 18:39:24 by pgrellie         ###   ########.fr       */
+/*   Updated: 2024/04/26 18:49:29 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	main(int ac, char **av)
 	if (check_av(av))
 		return (1);
 	stack_init_a(&a, av);
+	ft_free(av);
 	if (!stack_sorted(a))
 	{
 		if (stack_len(a) == 2)
@@ -44,7 +45,6 @@ int	main(int ac, char **av)
 		else
 			sort_stacks(&a, &b);
 	}
-	ft_free(av);
 	free_stack(&a);
 	return (0);
 }

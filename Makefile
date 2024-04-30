@@ -6,7 +6,7 @@
 #    By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/01 17:17:48 by pgrellie          #+#    #+#              #
-#    Updated: 2024/04/18 18:07:37 by pgrellie         ###   ########.fr        #
+#    Updated: 2024/04/30 15:01:00 by pgrellie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 NAME =  push_swap
 BONUS_NAME = checker
-CFLAGS = -g -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 ARCHIVE = push_swap.a
 COMP = cc
 RM = rm -f
@@ -66,7 +66,7 @@ LIBFT_PATH = $(LIBFT_DOSS)/pedro_lib.a
 all: $(NAME) $(LIBFT_PATH)
 
 $(NAME) : $(ARCHIVE) $(LIBFT_PATH)
-	$(COMP) $(ARCHIVE) $(LIBFT_PATH) -o $(NAME)
+	$(COMP) $(CFLAGS) $(ARCHIVE) $(LIBFT_PATH) -o $(NAME)
 
 $(ARCHIVE) : $(OBJS)
 	$(MAKE_LIB) $(ARCHIVE) $(OBJS)
@@ -74,7 +74,9 @@ $(ARCHIVE) : $(OBJS)
 %.o: %.c
 	$(COMP) $(CFLAGS) -c $< -o $@
 
-bonus: $(OBJS_BONUS) $(LIBFT_PATH) $(NAME)
+bonus: $(BONUS_NAME)
+
+$(BONUS_NAME): $(OBJS_BONUS) $(LIBFT_PATH)
 	$(COMP) $(CFLAGS) $(OBJS_BONUS) $(LIBFT_PATH) -o $(BONUS_NAME)
 
 $(LIBFT_PATH):
