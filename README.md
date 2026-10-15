@@ -1,69 +1,69 @@
 # push_swap
 
-Projet d’algorithmie en C inspiré du sujet **push_swap** de 42. Le programme trie une séquence d’entiers en utilisant deux piles et en produisant une suite d’opérations limitée, avec pour objectif de réduire le nombre de mouvements.
+A C algorithm project based on 42's **push_swap** assignment. The program sorts a sequence of integers using two stacks and outputs a limited set of operations, aiming to minimize the number of moves.
 
-## Principe
+## How it works
 
-Les valeurs sont stockées dans deux piles, **A** et **B**, représentées par des listes doublement chaînées. Le programme commence par placer une partie des valeurs dans B, puis réinsère les éléments dans A dans le bon ordre. Pour chaque réinsertion, il détermine une position cible, estime le coût des rotations nécessaires et choisit le déplacement le moins coûteux. Les rotations communes aux deux piles sont combinées lorsque c’est possible. Les petits cas sont traités séparément, puis le minimum est replacé en tête de A.
+Values are stored in two stacks, **A** and **B**, represented by doubly linked lists. The program first moves some of the values to B, then reinserts them into A in the correct order. For each insertion, it finds a target position, estimates the cost of the required rotations, and chooses the least expensive move. Rotations shared by both stacks are combined whenever possible. Small input sizes are handled separately, and the minimum value is then moved to the top of A.
 
-Le résultat est une liste d’instructions sur la sortie standard. Une entrée déjà triée ne nécessite aucune instruction.
+The program writes a list of instructions to standard output. Already-sorted input requires no instructions.
 
-## Compilation
+## Build
 
-Le projet se compile avec `make` :
+Build the project with `make`:
 
 ```sh
 make
 ```
 
-Cela construit `push_swap` et sa bibliothèque C locale `pedro_lib/pedro_lib.a`. Le vérificateur bonus se construit séparément :
+This builds `push_swap` and the local C library `pedro_lib/pedro_lib.a`. The bonus checker is built separately:
 
 ```sh
 make bonus
 ```
 
-Commandes de nettoyage disponibles : `make clean`, `make fclean` et `make re`.
+Available cleanup commands: `make clean`, `make fclean`, and `make re`.
 
-## Utilisation
+## Usage
 
-Passer les entiers dans un seul argument, séparés par des espaces :
+Pass the integers as a single, space-separated argument:
 
 ```sh
 ./push_swap "4 67 3 0 -1"
 ```
 
-Pour vérifier la suite d’opérations avec le programme bonus :
+To verify the operation sequence with the bonus program:
 
 ```sh
 ARG="4 67 3 0 -1"
 ./push_swap "$ARG" | ./checker "$ARG"
 ```
 
-Le checker lit les opérations depuis l’entrée standard et affiche `OK` si A est triée dans l’ordre croissant et B est vide, `KO` sinon. Une instruction inconnue produit `Error`.
+The checker reads operations from standard input and prints `OK` if A is sorted in ascending order and B is empty; otherwise, it prints `KO`. An unknown instruction produces `Error`.
 
-## Opérations disponibles
+## Available operations
 
-| Instruction | Effet |
+| Instruction | Effect |
 | --- | --- |
-| `sa`, `sb`, `ss` | Échange les deux premiers éléments de A, de B, ou des deux piles. |
-| `pa`, `pb` | Déplace le sommet d’une pile vers l’autre. |
-| `ra`, `rb`, `rr` | Effectue une rotation vers le haut sur A, B, ou les deux piles. |
-| `rra`, `rrb`, `rrr` | Effectue une rotation inverse sur A, B, ou les deux piles. |
+| `sa`, `sb`, `ss` | Swap the first two elements of A, B, or both stacks. |
+| `pa`, `pb` | Move the top element from one stack to the other. |
+| `ra`, `rb`, `rr` | Rotate A, B, or both stacks upward. |
+| `rra`, `rrb`, `rrr` | Rotate A, B, or both stacks downward. |
 
-Les opérations sans suffixe combiné agissent sur une seule pile ; les formes `ss`, `rr` et `rrr` appliquent l’action aux deux piles.
+Operations without a combined suffix affect a single stack; `ss`, `rr`, and `rrr` apply the operation to both stacks.
 
-## Entrées et erreurs
+## Input and errors
 
-Les arguments doivent être des entiers représentables par le type `int`, sans doublons. Une entrée invalide (valeur non numérique, doublon ou dépassement de plage) affiche `Error`.
+Arguments must be integers representable by the `int` type, with no duplicates. Invalid input (a non-numeric value, duplicate, or out-of-range value) prints `Error`.
 
-## Structure du dépôt
+## Repository structure
 
-- Les fichiers C à la racine contiennent le programme de tri, le traitement des arguments, les opérations sur les piles et la logique de réinsertion.
-- `push_swap_bonus/` contient le programme `checker` et ses opérations, qui appliquent les instructions reçues.
-- `pedro_lib/` contient la bibliothèque C utilisée par le projet, dont des fonctions de chaînes, d’E/S et `get_next_line`.
+- The C files in the repository root contain the sorting program, argument parsing, stack operations, and reinsertion logic.
+- `push_swap_bonus/` contains the `checker` program and its operations for applying the received instructions.
+- `pedro_lib/` contains the project's C library, including string and I/O functions and `get_next_line`.
 
 ## Technologies
 
-- Langage C
+- C
 - Make
-- Bibliothèque standard du projet dans `pedro_lib/`
+- Project library in `pedro_lib/`
